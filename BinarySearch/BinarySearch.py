@@ -25,6 +25,33 @@
 """ PSEUDO CODE SOLUTION
 
 SOLUTION: (BINARY SEARCH (DIVIDE AND CONQUOR))
-    - 
+    - Initialize LEFT and RIGHT pointers
+    - while LEFT <= RIGHT
+        - find MID index
+        - check if target is equal to MID value
+            - Return MID index if TRUE
+        - Else if target is less than MID, RIGHT is MID - 1
+        - Else if target is greater that MID, LEFT is MID + 1
+    - if LEFT >= RIGHT
+        -return -1
     
 """
+
+import math
+from typing import List
+
+def search(self, nums: List[int], target: int) -> int:
+    left, right = 0, len(nums) - 1
+
+    while left <= right:
+        mid = (left + right) // 2
+
+        if target == nums[mid]:
+            return mid
+        elif target >= nums[mid]:
+            left = mid + 1
+        else:
+            right = mid - 1
+
+    return -1
+        
